@@ -7,9 +7,9 @@ jobs:
       matrix:
         node-version: [ 18.x ]
     steps:
-      - uses: actions/chekout@v3
+      - uses: actions/chekout@v2
       - name: Starting Node.js ${{ matrix.node-version}}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v2
         with: 
           node-version: ${{ matrix.node-version}}
       - name: install modules
