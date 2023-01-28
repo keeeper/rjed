@@ -1,4 +1,4 @@
-import './index.scss'; 
+import './styles/index.scss'; 
 
 import React from 'react';
 import { render } from 'react-dom';
@@ -10,5 +10,5 @@ render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById("root")
+  document.getElementById("app")
 )

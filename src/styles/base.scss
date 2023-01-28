@@ -1,0 +1,49 @@
+html {
+  height: 100%;
+  font-size: $base-font-size;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  min-width: 320px;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  font-size: $base-font-size;
+  font-family: $serif-font-family;
+  background-color: $bg-clr;
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+.main {
+  display: flex;
+  flex: 1 0 auto;
+  align-items: center;
+}
+
+.wrapper {
+  width: 100%;
+  padding: 4rem;
+  margin: 0 auto;
+  max-width: 980px;
+}
+
+.site-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.joke-text {
+  display: inline-block;
+  color: $text-clr;
+  font-size: 2.4rem;
+  text-align: left;
+  width: 100%;
+}
+
