@@ -1,17 +1,21 @@
 const path = require("path");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HTMLWebpackPlugin = require("html-webpack-plugin");
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   mode: "production",
-  entry: ["@babel/polyfill", "./src/index.jsx"],
+  entry: ["./src/index.jsx"],
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "[name].[hash].js"
+    filename: '[name].[chunkhash].js',
   },
 
   devServer: {
-    port: 3000
+    port: 3000,
+    devMiddleware: {
+      writeToDisk: true
+    }
   },
 
   resolve: {
@@ -21,13 +25,14 @@ module.exports = {
   plugins: [
     new HTMLWebpackPlugin({template: "./src/index.html"}),
     new CleanWebpackPlugin(),
+    new BundleAnalyzerPlugin()
   ],
 
   performance: {
     hints: false
   },
 
-   module: {
+  module: {
     rules: [
       {
         test: /\.(css|scss)$/,
