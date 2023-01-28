@@ -1,7 +1,6 @@
 const path = require("path");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HTMLWebpackPlugin = require("html-webpack-plugin");
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   mode: "production",
@@ -9,7 +8,6 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: '[name].[chunkhash].js',
-    publicPath: './'
   },
 
   devServer: {
@@ -26,7 +24,6 @@ module.exports = {
   plugins: [
     new HTMLWebpackPlugin({template: "./src/index.html"}),
     new CleanWebpackPlugin(),
-    new BundleAnalyzerPlugin()
   ],
 
   performance: {
