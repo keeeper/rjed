@@ -23,6 +23,10 @@ module.exports = {
     new CleanWebpackPlugin(),
   ],
 
+  performance: {
+    hints: false
+  },
+
    module: {
     rules: [
       {

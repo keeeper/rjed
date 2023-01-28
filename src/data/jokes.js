@@ -12,7 +12,7 @@ const jokes = [
   {
     id: 2,
     content: "Mom comes with her son to a doctor. At the end of th visit doctor asks a boy: How old are you ?' 'Will be 8 soon' 'Oh, how optimistic you are",
-    type: 'black'
+    type: 'black1'
   }
 ]
 
