@@ -12,7 +12,8 @@ export default function Joke({ text }) {
     
   
     useEffect(() => {
-      const newText = text.replace(/<br>/g, "<br/>");
+      const newText = text.replace(/<vivid1>/g, "<span class='vivid-clr-1'>").replace(/<\/vivid1>/g, "</span>")
+      .replace(/<vivid2>/g, "<span class='vivid-clr-2'>").replace(/<\/vivid2>/g, "</span>").replace(/<br>/g, "<br/>");
       setFormattedText(newText);
     }, [text]);
   
@@ -24,15 +25,15 @@ export default function Joke({ text }) {
       
     useEffect(() => {
       let index = 0;
+      dispatch(toggleLoading(true));
       setRevealedText("");
-      dispatch(toggleLoading());
       const textArray = text.split("");
       const interval = setInterval(() => {
         setRevealedText(prevText => prevText + textArray[index]);
         index++;
         if (index === textArray.length) {
+          dispatch(toggleLoading(false));
           clearInterval(interval);
-          dispatch(toggleLoading());
         }
       }, delay);
       //clear the previous interval when the text changes

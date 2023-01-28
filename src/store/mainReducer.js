@@ -15,7 +15,7 @@ export default createReducer(initialState, {
   [nextJoke]: function (state) {
     state.currentJokeId = state.currentJokeId < state.jokes.length - 1 ? state.currentJokeId + 1 : 0;
   },
-  [toggleLoading]: function(state) {
-    state.isLoading = !state.isLoading;
+  [toggleLoading]: function(state, action) {
+    state.isLoading = action.payload;
   }
 })
