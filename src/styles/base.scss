@@ -1,6 +1,10 @@
 html {
   height: 100%;
-  font-size: $base-font-size;
+  font-size: $desktop-font-size;
+
+  @media (max-width: $mobile) {
+    font-size: $mobile-font-size;
+  }
 }
 
 body {
@@ -10,7 +14,6 @@ body {
   min-height: 100vh;
   padding: 0;
   margin: 0;
-  font-size: $base-font-size;
   font-family: $serif-font-family;
   background-color: $bg-clr;
 
@@ -23,6 +26,7 @@ body {
   display: flex;
   flex: 1 0 auto;
   align-items: center;
+  margin-bottom: 12rem;
 }
 
 .wrapper {
@@ -30,6 +34,9 @@ body {
   padding: 4rem;
   margin: 0 auto;
   max-width: 980px;
+  @media (max-width: $mobile) {
+    padding: 2rem;
+  }
 }
 
 .site-container {
@@ -40,17 +47,9 @@ body {
   min-height: 100vh;
 }
 
-.joke-text {
-  display: inline-block;
-  color: $text-clr;
-  font-size: 2.4rem;
-  text-align: left;
-  width: 100%;
-}
-
 .message {
   font-size: 2rem;
-  color: $vivid-clr-3;
+  color: rgba($white, 0.6);
   font-family: $sans-serif-font-family;
 }
 
@@ -61,3 +60,4 @@ body {
 .vivid-clr-2 {
   color: $vivid-clr-2;
 }
+

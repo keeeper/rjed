@@ -1,10 +1,12 @@
 import { createAction, createReducer } from "@reduxjs/toolkit";
 import jokes from '../data/jokes';
+import splash from '../data/splash';
 import { getRandomId } from "../utils/utils";
 
 const firstJokeId = getRandomId(jokes);
 
 const initialState = {
+  splashText: splash,
   isLoading: false,
   jokes: jokes,
   currentJokeId: firstJokeId,

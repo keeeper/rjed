@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { toggleLoading } from '../store/mainReducer';
 
-export default function Joke({ text }) {
+export default function AnimatedText({ text }) {
   const dispatch = useDispatch();
 
   function useTextWithBreaks(text) {
@@ -44,5 +44,5 @@ export default function Joke({ text }) {
   const formattedText = useTextWithBreaks(text);
   const revealedText = useTextReveal(formattedText);
 
-  return <div className="joke-text">{htmlParse(revealedText)}</div>;
+  return <div className="animated-text">{htmlParse(revealedText)}</div>;
 }
