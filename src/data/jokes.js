@@ -42,6 +42,18 @@ const jokes = [
   {
     id: 10,
     content: "Winston Churchill [<vivid1>WC</vivid1>] was known for having a strong personality and sometimes a difficult character. Once during a meeting he had a quarrel with a lady [<vivid2>L</vivid2>] ended with a dialog.<br>[<vivid2>L</vivid2>]: If you were my husband, I would put poison to your coffie !<br><vivid1>WC</vivid1>: If I were your husband, I would drink it!",
+  },
+  {
+    id: 11,
+    content: "Guy from the country where dog is a common meal comes to the USA, and sees the cafe with 'Hot dogs'. Orders one with a home meal in mind. Starts to eat it, sees the sausage. Gets back to seller with the words: Can I have another piece of dog?",
+  },
+  {
+    id: 12,
+    content: "Climber fall off the cliff, but he is still alive. Why?<br>He is still flying.",
+  },
+  {
+    id: 13,
+    content: "Covid times. Why do everybody buy so much toilet paper? One cough others crap their pants.",
   }
 ]
 
