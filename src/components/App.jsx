@@ -6,10 +6,13 @@ import Joke from './Joke';
 import Button from './Button';
 
 const App = () => {
+  const dispatch = useDispatch();
+  
   const jokes = useSelector(state => state.main.jokes);
   const joke = useSelector(state => jokes[state.main.currentJokeId]);
   const jokesAlreadyRead = useSelector(state => state.main.jokesAlreadyRead);
-  const dispatch = useDispatch();
+  const isLoading  = useSelector(state => state.main.isLoading);
+  
   const allJokesAreRead = jokesAlreadyRead.length === jokes.length;
 
   function getNextJoke() {
@@ -34,7 +37,7 @@ const App = () => {
           {allJokesAreRead ? (
             <p className="message">All jokes have been read</p>
           ) : (
-            <Button buttonName="Next" clickHandler={getNextJoke} />
+            <Button buttonName="next" buttonAltName="skip" clickHandler={getNextJoke} isLoading={isLoading}  />
           )}
         </div>
       </footer>

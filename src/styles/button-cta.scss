@@ -1,4 +1,5 @@
 .button-cta {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,6 +10,7 @@
   border-radius: 40px;
   background-color: rgba($accent-clr, 0.2);
   color: $white;
+  overflow: hidden;
   transition: all 0.2s;
   cursor: pointer;
 
@@ -17,32 +19,29 @@
   }
 
   &__name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
     display: block;
     font-size: 1.5rem;
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
     font-family: $sans-serif-font-family;
+    transform: translate(-50%, -50%);
+    transition: all 0.2s;
   }
 
-  &__loader {
-    display: none;
-    border: 3px solid transparent; /* change this to change the color of the loader */
-    border-top: 3px solid rgba($accent-clr , 0.8); /* change this to change the color of the top part of the loader */
-    border-radius: 50%;
-    width: 32px;
-    height: 32px;
-    animation: spin 1s linear infinite;
+  &__name--alt {
+    transform: translate(-100px, -50%)
   }
 
-  &.is-disabled {
-    pointer-events: none;
-    width: 48px;
+  &.is-loading {
     .button-cta__name {
-      display: none;
+      transform: translate(100px, -50%);
     }
-    .button-cta__loader {
-      display: block;
+    .button-cta__name--alt {
+      transform: translate(-50%, -50%);
     }
   }
 }
