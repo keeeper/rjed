@@ -1,13 +1,13 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import {nextJoke} from '../store/mainReducer';
+import { useSelector } from 'react-redux';
 
-const Button = ({name}) => {
+
+const Button = ({buttonName, clickHandler}) => {
   const isLoading  = useSelector(state => state.main.isLoading);
-  const dispatch = useDispatch();
+ 
   return(
-    <button className={`button-cta ${isLoading ? 'is-disabled' : ''}  `} type="button" onClick={()=>dispatch(nextJoke())}>
-      <span className="button-cta__name">{name}</span>
+    <button className={`button-cta ${isLoading ? 'is-disabled' : ''}`} type="button" onClick={clickHandler}>
+      <span className="button-cta__name">{buttonName}</span>
       <span className="button-cta__loader"></span>
     </button>
   )

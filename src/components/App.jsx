@@ -1,10 +1,26 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import {nextJoke} from '../store/mainReducer';
+import { getRandomId } from "../utils/utils";
 import Joke from './Joke';
 import Button from './Button';
 
 const App = () => {
-  const joke = useSelector(state => state.main.jokes[state.main.currentJokeId]);
+  const jokes = useSelector(state => state.main.jokes);
+  const joke = useSelector(state => jokes[state.main.currentJokeId]);
+  const jokesAlreadyRead = useSelector(state => state.main.jokesAlreadyRead);
+  const dispatch = useDispatch();
+  const allJokesAreRead = jokesAlreadyRead.length === jokes.length;
+
+  function getNextJoke() {
+    let newId = getRandomId(jokes);
+    const wasAlreadyRead = jokesAlreadyRead.includes(newId);
+    if (wasAlreadyRead) {
+      getNextJoke();
+    } else {
+      dispatch(nextJoke(newId));
+    }
+  }
   
   return (
     <div className='site-container'>
@@ -15,7 +31,11 @@ const App = () => {
       </main>
       <footer>
         <div className='wrapper'>
-          <Button name="Next" />
+          {allJokesAreRead ? (
+            <p className="message">All jokes have been read</p>
+          ) : (
+            <Button buttonName="Next" clickHandler={getNextJoke} />
+          )}
         </div>
       </footer>
     </div>

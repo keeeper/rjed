@@ -1,3 +1,3 @@
-export function getRandomId(length) {
-  return Math.floor(Math.random() * length);
+export function getRandomId(arr) {
+  return Math.floor(Math.random() * arr.length);
 }

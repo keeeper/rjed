@@ -1,21 +1,26 @@
 import { createAction, createReducer } from "@reduxjs/toolkit";
-// import { getRandomId } from "../utils/utils";
 import jokes from '../data/jokes';
+import { getRandomId } from "../utils/utils";
+
+const firstJokeId = getRandomId(jokes);
 
 const initialState = {
   isLoading: false,
   jokes: jokes,
-  currentJokeId: 0
+  currentJokeId: firstJokeId,
+  jokesAlreadyRead: [firstJokeId]
 }
 
 export const nextJoke = createAction('NEXT_JOKE');
 export const toggleLoading = createAction('TOGGLE_LOADING');
+export const addToRead = createAction('ADD_TO_READ');
 
 export default createReducer(initialState, {
-  [nextJoke]: function (state) {
-    state.currentJokeId = state.currentJokeId < state.jokes.length - 1 ? state.currentJokeId + 1 : 0;
+  [nextJoke]: function (state, action) {
+    state.currentJokeId = action.payload;
+    state.jokesAlreadyRead = state.jokesAlreadyRead.includes(action.payload) ? [...state.jokesAlreadyRead] : [...state.jokesAlreadyRead, action.payload];
   },
   [toggleLoading]: function(state, action) {
     state.isLoading = action.payload;
-  }
+  },
 })

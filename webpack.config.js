@@ -3,11 +3,11 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  mode: "production",
-  entry: ["./src/index.jsx"],
+  // mode: "development",
+  entry: ["@babel/polyfill", "./src/index.jsx"],
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: '[name].[chunkhash].js',
+    filename: '[name].[contenthash].js',
   },
 
   devServer: {
