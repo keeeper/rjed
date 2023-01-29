@@ -9,7 +9,6 @@ export default function Joke({ text }) {
 
   function useTextWithBreaks(text) {
     const [formattedText, setFormattedText] = useState(text);
-    
   
     useEffect(() => {
       const newText = text.replace(/<vivid1>/g, "<span class='vivid-clr-1'>").replace(/<\/vivid1>/g, "</span>")
