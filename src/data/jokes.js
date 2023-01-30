@@ -54,6 +54,14 @@ const jokes = [
   {
     id: 13,
     content: "Covid times. Why do everybody buy so much toilet paper? One cough others crap their pants.",
+  },
+  {
+    id: 14,
+    content: "What does the lesbian vampire say to her partner?<br>See you next month.",
+  },
+  {
+    id: 15,
+    content: "1What does the lesbian vampire say to her partner?<br>See you next month.",
   }
 ]
 

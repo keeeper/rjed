@@ -32,6 +32,15 @@ const App = () => {
     getNextJoke();
   }
 
+  if (localStorage.getItem("numberOfJokes")) {
+    const jokesSinceLastVisit = localStorage.getItem("numberOfJokes");
+    if(jokes.length > jokesSinceLastVisit) {
+      // console.log(jokes.length - jokesSinceLastVisit)
+    }
+  } 
+
+  localStorage.setItem("numberOfJokes", jokes.length);
+
   if (!localStorage.getItem("firstLoad")){
     return <Splash clickHandler={skipSplash} text={splashText} isLoading={isLoading} />
   }
